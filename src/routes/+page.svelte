@@ -8,15 +8,15 @@
 	import InviteBuild from "$components/home/Invite/InviteBuild.svelte";
 	let Description =
 		'Aisha Project 2024 is a project for Aisha Thai Vtuber, In this year we are going to make an different than before, check our website for more information!';
-	let promise = fetchData();
+	/* let promise = fetchData(); */
 	import { onMount } from 'svelte';
 	import DonateInfo from '$components/home/Donate/DonateInfo.svelte';
 	import Footer from "$components/footer.svelte";
 	let totalDonated = 40000;
 	let totalRequired = 60000;
-	onMount(() => {
+	/* onMount(() => {
 		fetchData();
-	});
+	}); */
 	async function fetchData() {
 		const response = await fetch('https://api-guppiens.guppiens2024.com/api');
 		if (response.ok) {
@@ -39,22 +39,22 @@
 	<div class="mx-auto h-full w-full overflow-x-hidden rounded-lg bg-white pb-9 shadow-lg md:mt-2">
 		<Header />
 		<Overall />
-		{#await promise}
+		<!--	{#await promise}
 			<div class=" mx-auto my-2 text-red-600">
 				<p class=" mx-auto text-center text-xl text-aisha md:text-3xl">
 					กำลังโหลดจำนวนเงินสมทบทุนล่าสุด
 				</p>
 			</div>
 			<DonateInfo />
-		{:then { totalDonated, totalRequired }}
+		{:then { totalDonated, totalRequired }} -->
 			<Donate {totalDonated} {totalRequired}></Donate>
-		{:catch error}
+		<!--	{:catch error}
 			<div class=" mx-auto text-xl text-red-600">
 				<p class=" mx-auto text-center text-3xl text-red-600">Fail to fetch donate data</p>
 				<p class=" mx-auto text-center text-3xl text-red-600">{error.message}</p>
 			</div>
 			<DonateInfo />
-		{/await}
+		{/await} -->
 		<Joinus />
 	</div>
 </div>
